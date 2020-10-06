@@ -7,7 +7,16 @@ def test_remove():
     pass
 
 def test_set():
-    pass
+    stor = Storage({'a' : 1, 'b' : 2})
+    key = 'a'
+    new_value = 0
+    stor.set(key, new_value)
+    assert stor.get(key) == new_value, "New key-value pair not found"
+    key = 'c'
+    try:
+        stor.set(key, new_value)
+    except Exception:
+        assert True
 
 def test_get():
     st = Storage({'a': 1, 'b': 2})
