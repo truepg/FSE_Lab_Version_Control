@@ -15,9 +15,8 @@ class Storage:
     def remove(self, key):
         if key in self.data:
             del self.data[key]
-            return True
         else:
-            return None
+            raise Exception
         
 
     def set(self):

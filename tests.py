@@ -9,9 +9,14 @@ def test_remove():
     st.remove(key)
     val = st.get(key)
     assert val is None, "The <key,value> pair has not been deleted"
-    key = 'b'
-    val = st.get(key)
-    assert val is not None, "Removed wrong <key,value> pair"
+    key = 'с'
+    try:
+        st.remove(key)
+    except KeyError:
+        pass
+    else:
+        raise Exception
+   
 
 def test_set():
     pass
