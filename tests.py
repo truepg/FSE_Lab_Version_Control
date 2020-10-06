@@ -16,7 +16,19 @@ def test_add():
         raise Exception
 
 def test_remove():
-    pass
+    st = Storage({'a': 1, 'b': 2})
+    key = 'a'
+    st.remove(key)
+    val = st.get(key)
+    assert val is None, "The <key,value> pair has not been deleted"
+    key = 'с'
+    try:
+        st.remove(key)
+    except KeyError:
+        pass
+    else:
+        raise Exception
+   
 
 def test_set():
     stor = Storage({'a' : 1, 'b' : 2})
