@@ -1,7 +1,19 @@
 from storage import Storage
 
 def test_add():
-    pass
+    st = Storage({'a': 1, 'b': 2})
+    
+    key, val = 'c', 3
+    st.add(key, val)
+    assert st.get(key) == val, "Value for the key {} is not equal to excepted".format(key)
+
+    key, val = 'b', 20
+    try:
+        st.add(key, val)
+    except KeyError:
+        pass
+    else:
+        raise Exception
 
 def test_remove():
     pass

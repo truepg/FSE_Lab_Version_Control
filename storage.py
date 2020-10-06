@@ -20,5 +20,8 @@ class Storage:
             self.data[key] = value
         else: raise Exception
     
-    def add(self):
-        pass
+    def add(self, key, value):
+        if key not in self.data.keys():
+            self.data[key] = value
+        else:
+            raise KeyError
